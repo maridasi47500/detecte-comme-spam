@@ -1,0 +1,25 @@
+<h1># detecte-comme-spam</h1>
+<div id="mycontent">
+<label>content:</label>
+<textarea id="text1">
+</textarea>
+<label>ecrire plus gros:</label>
+<input name="fontsize1"/>
+<label>quel couleur:</label>
+<input type="color" name="color1"/>
+</div>
+<button data-number="1" id="adddiv1">ajouter un texte</button>
+<script>
+function addatext(){
+adddiv1.dataset.number=Number(adddiv1.dataset.number)+1;
+var num=adddiv1.dataset.number;
+mycontent.innerHTML+=`<label>content:</label>
+<textarea id="text{num}">
+</textarea>
+<label>ecrire plus gros:</label>
+<input name="fontsize{num}"/>
+<label>quel couleur:</label>
+<input type="color" name="color{num}" onchange="text{num}.style.color=this.value;return false;"/>
+`;
+}
+</script>
