@@ -1,25 +1,18 @@
+{% extends 'base.html' %}
+
+{% block montitre %}
+debut de mes mots: bienvenue dans detecte comme spam
+{% endblock %}
+{% block content %}
 <h1># detecte-comme-spam</h1>
-<div id="mycontent">
-<label>content:</label>
-<textarea id="text1">
-</textarea>
-<label>ecrire plus gros:</label>
-<input name="fontsize1"/>
-<label>quel couleur:</label>
-<input type="color" name="color1"/>
-</div>
-<button data-number="1" id="adddiv1">ajouter un texte</button>
-<script>
-function addatext(){
-adddiv1.dataset.number=Number(adddiv1.dataset.number)+1;
-var num=adddiv1.dataset.number;
-mycontent.innerHTML+=`<label>content:</label>
-<textarea id="text{num}">
-</textarea>
-<label>ecrire plus gros:</label>
-<input name="fontsize{num}"/>
-<label>quel couleur:</label>
-<input type="color" name="color{num}" onchange="text{num}.style.color=this.value;return false;"/>
-`;
-}
-</script>
+{% for x in users | reverse %}
+ <li>{{ x["first_name"]  }}</li>
+
+{% endfor %} 
+fin de mes mots : regarde comment des mails sont detecte comme spam (et essaye de les sortir de la file dattente au retour dun voyage)
+The smtplib module defines an SMTP client session object that can be used to send mail to any internet machine with an SMTP or ESMTP listener daemon.
+{% endblock %}
+{% block liens %}
+<a href="/">welcome</a>
+{% endblock %}
+<a href="/add_one_email"> add one email</a><a href="/add_one_user"> add one user</a><a href="/add_one_country"> add one country</a><a href="/add_one_image"> add one image</a><a href="/add_one_attachment"> add one attachment</a><a href="/add_one_text"> add one text</a>
